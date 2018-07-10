@@ -1,3 +1,4 @@
+
 package section2;
 
 import org.jointheleague.graphical.robot.Robot;
@@ -15,8 +16,10 @@ public class StarShow {
 		
 		drawStar(150);	//5. delete this line. You will draw the star again in step 8.
 		// 13. Set the speed to 8
+		robot.setSpeed(8);
 
 		// 6. Make a variable to hold the X position of the Robot and set it to 10
+		
 
 		// 7. Make a variable to hold the Y position of the Robot and set it to 600
 
@@ -46,12 +49,17 @@ public class StarShow {
 
 	private void drawStar(int starSize) {
 		// 2. Put the robot's pen down
+		robot.penDown();
 
 		// 4. Repeat both commands 5 times. See Figure 1 at http://bit.ly/star-show
+		for(int i = 0; i<5; i++) {
 
 			// 1. Move the robot the distance of the starSize variable
+		robot.move(starSize);
 	
 			// 3. Turn the robot 144 degrees
+		robot.turn(144);
+		}
 			
 	}
 	
