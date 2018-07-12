@@ -16,37 +16,59 @@ import org.jointheleague.graphical.robot.Robot;
 public class RobotTreasureHunt implements KeyEventDispatcher{
 
 	// 1. Create a new mini robot (type "mini" inside the parentheses)
+	Robot Bob = new Robot ("mini");
 	
 	private void goUp() throws InterruptedException {
 		// 2. Make the robot move up the screen (use setAngle(angle) and microMove(distance))
+		Bob.setAngle(0);
+		Bob.microMove(15);
 		
 	}
 
 	private void goDown() throws InterruptedException{
 		// 3. make the robot move down the screen (use setAngle(angle) and microMove(distance))
+		Bob.setAngle(180);
+		Bob.microMove(15);
 		
 	}
 
 	private void turnLeft() throws InterruptedException{
 		// 4. Make the robot turn to the left (use setAngle(angle) and microMove(distance))
+		Bob.setAngle(270);
+		Bob.microMove(15);
 
 	}
 
 	private void turnRight() throws InterruptedException{
 		// 5. make the robot turn to the right (use setAngle(angle) and microMove(distance))
+		Bob.setAngle(90);
+		Bob.microMove(15);
 		
 	}
 
 	private void spaceBarWasPressed() {
 
 		// 5. Change ROBOTNAME below to match the name of the robot you created in step 1.  THEN, remove the slashes at the beginning of the next two lines
-		//int robotXLocation = ROBOTNAME.getX();
-		//int robotYLocation = ROBOTNAME.getY();
+		int robotXLocation = Bob.getX();
+		int robotYLocation = Bob.getY();
 		
 		// 6. Print the robotXLocation and robotYLocation variables to the console 
-		
+		System.out.println(Bob.getX()+"   "+Bob.getY());
+		if(robotXLocation==720&&robotYLocation==405) {
 		// 7. If robot is at same location as the little girl
 		//      --make a pop-up tell the robot where to go next
+		JOptionPane.showMessageDialog(null,"Go to the tree with the Skull on its nose");	
+		
+		if(robotXLocation==255&&robotYLocation==120) {
+			
+		}
+		
+		JOptionPane.showMessageDialog(null,"Go to the Swamp");	
+		if(robotXLocation==255&&robotYLocation==140) {
+			treasureFound();
+		}
+			
+		}
 		
 		// 8. Give the user subsequent clues at different locations on the image
 		// (pirate robot, swamp, parrots, etc.)
@@ -66,26 +88,26 @@ public class RobotTreasureHunt implements KeyEventDispatcher{
 
 	public boolean dispatchKeyEvent(KeyEvent e) {
 		if (e.getID() == KeyEvent.KEY_PRESSED) {
-			if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
+			if (e.getKeyCode() == KeyEvent.VK_D) {
 				try {
 					turnRight();
 				} catch (InterruptedException e1) {
 					e1.printStackTrace();
 				}
 			}
-			else if (e.getKeyCode() == KeyEvent.VK_LEFT)
+			else if (e.getKeyCode() == KeyEvent.VK_A)
 				try {
 					turnLeft();
 				} catch (InterruptedException e2) {
 					e2.printStackTrace();
 				}
-			else if (e.getKeyCode() == 38)
+			else if (e.getKeyCode() == KeyEvent.VK_W)
 				try {
 					goUp();
 				} catch (InterruptedException e1) {
 					e1.printStackTrace();
 				}
-			else if (e.getKeyCode() == KeyEvent.VK_DOWN)
+			else if (e.getKeyCode() == KeyEvent.VK_S)
 				try {
 					goDown();
 				} catch (InterruptedException e1) {
